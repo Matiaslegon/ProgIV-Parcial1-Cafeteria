@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "tipo": "espresso",
+    "nombre": "Espresso Pocillo Brasil",
+    "precioBase": 2500,
+    "tamano": "pocillo",
+    "gramos": 18,
+    "variedad": "brasil",
+    "precioPorGramo": 140
+  },
+  {
+    "id": 2,
+    "tipo": "espresso",
+    "nombre": "Espresso Pocillo Colombia",
+    "precioBase": 2500,
+    "tamano": "pocillo",
+    "gramos": 18,
+    "variedad": "colombia",
+    "precioPorGramo": 180
+  },
+  {
+    "id": 3,
+    "tipo": "espresso",
+    "nombre": "Espresso Pocillo Etiopía",
+    "precioBase": 2500,
+    "tamano": "pocillo",
+    "gramos": 18,
+    "variedad": "etiopia",
+    "precioPorGramo": 240
+  },
+  {
+    "id": 4,
+    "tipo": "espresso",
+    "nombre": "Espresso Mediano Brasil",
+    "precioBase": 2500,
+    "tamano": "mediano",
+    "gramos": 27,
+    "variedad": "brasil",
+    "precioPorGramo": 140
+  },
+  {
+    "id": 5,
+    "tipo": "espresso",
+    "nombre": "Espresso Mediano Colombia",
+    "precioBase": 2500,
+    "tamano": "mediano",
+    "gramos": 27,
+    "variedad": "colombia",
+    "precioPorGramo": 180
+  },
+  {
+    "id": 6,
+    "tipo": "espresso",
+    "nombre": "Espresso Mediano Etiopía",
+    "precioBase": 2500,
+    "tamano": "mediano",
+    "gramos": 27,
+    "variedad": "etiopia",
+    "precioPorGramo": 240
+  },
+  {
+    "id": 7,
+    "tipo": "espresso",
+    "nombre": "Espresso Taza grande Brasil",
+    "precioBase": 2500,
+    "tamano": "taza_grande",
+    "gramos": 36,
+    "variedad": "brasil",
+    "precioPorGramo": 140
+  },
+  {
+    "id": 8,
+    "tipo": "espresso",
+    "nombre": "Espresso Taza grande Colombia",
+    "precioBase": 2500,
+    "tamano": "taza_grande",
+    "gramos": 36,
+    "variedad": "colombia",
+    "precioPorGramo": 180
+  },
+  {
+    "id": 9,
+    "tipo": "espresso",
+    "nombre": "Espresso Taza grande Etiopía",
+    "precioBase": 2500,
+    "tamano": "taza_grande",
+    "gramos": 36,
+    "variedad": "etiopia",
+    "precioPorGramo": 240
+  },
+  {
+    "id": 10,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Pocillo Brasil",
+    "precioBase": 3200,
+    "tamano": "pocillo",
+    "gramos": 6,
+    "variedad": "brasil",
+    "precioPorGramo": 140
+  },
+  {
+    "id": 11,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Pocillo Colombia",
+    "precioBase": 3200,
+    "tamano": "pocillo",
+    "gramos": 6,
+    "variedad": "colombia",
+    "precioPorGramo": 180
+  },
+  {
+    "id": 12,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Pocillo Etiopía",
+    "precioBase": 3200,
+    "tamano": "pocillo",
+    "gramos": 6,
+    "variedad": "etiopia",
+    "precioPorGramo": 240
+  },
+  {
+    "id": 13,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Mediano Brasil",
+    "precioBase": 3200,
+    "tamano": "mediano",
+    "gramos": 15,
+    "variedad": "brasil",
+    "precioPorGramo": 140
+  },
+  {
+    "id": 14,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Mediano Colombia",
+    "precioBase": 3200,
+    "tamano": "mediano",
+    "gramos": 15,
+    "variedad": "colombia",
+    "precioPorGramo": 180
+  },
+  {
+    "id": 15,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Mediano Etiopía",
+    "precioBase": 3200,
+    "tamano": "mediano",
+    "gramos": 15,
+    "variedad": "etiopia",
+    "precioPorGramo": 240
+  },
+  {
+    "id": 16,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Taza grande Brasil",
+    "precioBase": 3200,
+    "tamano": "taza_grande",
+    "gramos": 25,
+    "variedad": "brasil",
+    "precioPorGramo": 140
+  },
+  {
+    "id": 17,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Taza grande Colombia",
+    "precioBase": 3200,
+    "tamano": "taza_grande",
+    "gramos": 25,
+    "variedad": "colombia",
+    "precioPorGramo": 180
+  },
+  {
+    "id": 18,
+    "tipo": "filtrado",
+    "nombre": "Filtrado Taza grande Etiopía",
+    "precioBase": 3200,
+    "tamano": "taza_grande",
+    "gramos": 25,
+    "variedad": "etiopia",
+    "precioPorGramo": 240
+  },
+  {
+    "id": 19,
+    "tipo": "pasteleria",
+    "nombre": "Muffin de chocolate",
+    "precioBase": 2500
+  },
+  {
+    "id": 20,
+    "tipo": "pasteleria",
+    "nombre": "Torta selva negra",
+    "precioBase": 4200
+  }
+]
