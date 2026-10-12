@@ -1,16 +1,27 @@
-import { Producto } from "./Producto";
-type variedadPasteleria = 'muffin_chocolate' | 'torta_selva_negra';
+import { variedadPasteleria, PRECIO_POR_VARIEDAD_PASTELERIA } from '../config/catalogo';
+import { Producto } from './Producto';
 
 export class Pasteleria extends Producto {
-  private static readonly PRECIO_POR_VARIEDAD: Record<variedadPasteleria, number> = {
-    muffin_chocolate: 2500,
-    torta_selva_negra: 4200,
-  }
+  private variedad: variedadPasteleria;
+
   constructor(id: number, variedad: variedadPasteleria) {
-    super(id, `Pasteleria ${variedad.replace('_', ' ')}`, 'pasteleria', Pasteleria.PRECIO_POR_VARIEDAD[variedad]);
+    super(
+      id,
+      `Pasteleria ${variedad.replace('_', ' ')}`,
+      'pasteleria',
+      PRECIO_POR_VARIEDAD_PASTELERIA[variedad],
+    );
+    this.variedad = variedad;
   }
 
   calcularPrecio(): number {
-    return this.precioBase ;
+    return this.precioBase;
+  }
+
+  toJSON(): object {
+    return {
+      ...super.toJSON(),
+      variedad: this.variedad,
+    };
   }
 }

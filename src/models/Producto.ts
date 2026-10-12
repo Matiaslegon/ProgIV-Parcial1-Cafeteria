@@ -1,4 +1,4 @@
-export type tipoProducto = 'espresso' | 'filtrado' | 'pasteleria';
+import { tipoProducto } from '../config/catalogo';
 
 export abstract class Producto {
   protected id: number;
@@ -14,4 +14,26 @@ export abstract class Producto {
   }
 
   abstract calcularPrecio(): number;
+
+  toJSON(): object {
+    return {
+      id: this.id,
+      nombre: this.nombre,
+      tipo: this.tipo,
+      precioBase: this.precioBase,
+      precioFinal: this.calcularPrecio(),
+    };
+  }
+
+  getId(): number {
+    return this.id;
+  }
+
+  getNombre(): string {
+    return this.nombre;
+  }
+
+  getTipo(): tipoProducto {
+    return this.tipo;
+  }
 }
