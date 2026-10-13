@@ -1,6 +1,10 @@
-import { Producto } from './Producto';
-
 export type EstadoPedido = 'pendiente' | 'entregado' | 'cancelado';
+
+interface ProductoConPrecio {
+  calcularPrecio(): number;
+}
+
+type BuscarProducto = (id: number) => ProductoConPrecio;
 
 interface PedidoItem {
   productoId: number;
@@ -10,6 +14,12 @@ interface PedidoItem {
 export interface NuevoPedido {
   items: PedidoItem[];
   estado?: EstadoPedido;
+}
+
+export interface PedidoJSON {
+  id: number;
+  items: PedidoItem[];
+  estado: EstadoPedido;
 }
 
 export class Pedido {
@@ -27,14 +37,14 @@ export class Pedido {
     this.estado = nuevoEstado;
   }
 
-  calcularTotal(obtenerPrecio: (productoId: number) => number): number {
+  calcularTotal(buscar: BuscarProducto): number {
     return this.items.reduce(
-      (total, item) => total + obtenerPrecio(item.productoId) * item.cantidad,
+      (total, item) => total + buscar(item.productoId).calcularPrecio() * item.cantidad,
       0,
     );
   }
 
-  toJSON(): object {
+  toJSON(): PedidoJSON {
     return {
       id: this.id,
       items: this.items,

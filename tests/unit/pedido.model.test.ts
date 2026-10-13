@@ -1,6 +1,5 @@
 import { expect, it, describe, beforeEach } from 'vitest';
 import { Pedido } from '../../src/models/Pedido';
-import { Producto } from '../../src/models/Producto';
 
 describe('Pedido Model', () => {
   let pedido: Pedido;
@@ -30,7 +29,10 @@ describe('Pedido Model', () => {
       2: 1000,
     };
 
-    const total = pedido.calcularTotal((productoId) => precios[productoId]);
+    const buscarProducto = (productoId: number) => ({
+      calcularPrecio: () => precios[productoId],
+    });
+    const total = pedido.calcularTotal(buscarProducto);
 
     expect(total).toBe(2000);
   });
