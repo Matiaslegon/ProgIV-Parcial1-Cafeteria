@@ -1,4 +1,4 @@
-import { PedidoRepository } from '../repositories/PedidoRepository';
+import { PedidoService } from '../services/PedidoService';
 import { Request, Response } from 'express';
 import { z } from 'zod';
 
@@ -22,11 +22,11 @@ const crearPedidoSchema = z.object({
 });
 
 export class PedidoController {
-  constructor(private pedidoRepository: PedidoRepository) {}
+  constructor(private pedidoService: PedidoService) {}
 
   getPedidos = (req: Request, res: Response): Response => {
     try {
-      const pedidos = this.pedidoRepository.obtenerTodos();
+      const pedidos = this.pedidoService.obtenerTodos();
       return res.status(200).json(pedidos);
     } catch (error) {
       console.error('Error al obtener los pedidos:', error);
@@ -38,20 +38,22 @@ export class PedidoController {
     try {
       const parsed = crearPedidoSchema.safeParse(req.body);
       if (!parsed.success) {
-        return res.status(400).json({ error: z.treeifyError(parsed.error) });
+        return res
+          .status(400)
+          .json({ error: parsed.error.issues.map((e) => e.message).join(', ') });
       }
-      const pedidoCreado = this.pedidoRepository.crear(parsed.data);
+      const pedidoCreado = this.pedidoService.crear(parsed.data);
       return res.status(201).json(pedidoCreado);
-    } catch (error) {
-      console.error('Error al crear el pedido:', error);
-      return res.status(500).json({ error: 'Error al crear el pedido' });
+    } catch (error: any) {
+      console.error('Error al crear el pedido:', error.message);
+      return res.status(500).json({ error: `Error al crear el pedido: ${error.message}` });
     }
   };
 
   getPedidoPorId = (req: Request, res: Response): Response => {
     try {
       const { id } = req.params;
-      const pedido = this.pedidoRepository.obtenerPorId(Number(id));
+      const pedido = this.pedidoService.obtenerPorId(Number(id));
       if (!pedido) {
         return res.status(404).json({ error: 'Pedido no encontrado' });
       }
