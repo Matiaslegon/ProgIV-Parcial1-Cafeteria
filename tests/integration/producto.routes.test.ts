@@ -1,11 +1,16 @@
-import { describe, expect, it } from "vitest";
+import { Express } from "express";
+import { describe, it, expect, beforeEach } from "vitest";
 import request from "supertest";
 import { crearApp } from "../../src/app";
 
 describe("Producto Routes", () => {
-  const app = crearApp();
+  let app: Express;
 
-  it("GET /productos retorna el catálogo completo", async () => {
+  beforeEach(() => {
+    app = crearApp();
+  });
+
+  it("GET /productos retorna la lista de todos los productos", async () => {
     const response = await request(app).get("/productos");
 
     expect(response.status).toBe(200);
