@@ -1,7 +1,4 @@
 import { Pedido, NuevoPedido } from '../models/Pedido';
-import productos from '../../data/productos.json' with { type: 'json' };
-import { Producto } from '../models/Producto';
-
 interface IPedidoRepository {
   obtenerTodos(): Pedido[];
   crear(pedido: NuevoPedido): Pedido;
