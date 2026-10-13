@@ -1,7 +1,8 @@
-import { Pedido, BuscarProducto } from "./Pedido";
+import { Pedido, BuscarProducto, NuevoPedido, EstadoPedido } from "./Pedido";
 import { Producto } from "./Producto";
 
 interface TotalPedido {
+    estado: EstadoPedido;
     calcularTotal(buscar: BuscarProducto): number;
 }
 
@@ -13,14 +14,13 @@ export class Reporte {
     private facturacion: number = 0;
 
     calcularFacturacion(pedidos: TotalPedido[], buscar: BuscarProducto): number {
-        this.facturacion = pedidos.reduce(
-            (suma, pedido) => suma + pedido.calcularTotal(buscar),
-            0,
-        );
-        return this.facturacion;
+            this.facturacion = pedidos
+        .filter(pedido => pedido.estado === 'entregado')
+        .reduce((suma, pedido) => suma + pedido.calcularTotal(buscar), 0);
+    return this.facturacion;
     }
 
-    productoMasVendido(pedidos: PedidoItems[], buscar:BuscarProducto): number | undefined {
+    productoMasVendido(pedidos: PedidoItems[]): number | undefined {
         const ventas = new Map<number, number>();
         for (const pedido of pedidos) {
             for (const item of pedido.items) {
@@ -30,7 +30,7 @@ export class Reporte {
                 );
             }
         }
-
+    
         let masVendido: number | undefined;
         let maximo = 0;
 
