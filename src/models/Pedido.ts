@@ -1,7 +1,10 @@
-import { Producto } from './Producto';
-
 export type EstadoPedido = 'pendiente' | 'entregado' | 'cancelado';
-type BuscarProducto = (id: number) => Producto;
+
+interface ProductoConPrecio {
+  calcularPrecio(): number;
+}
+
+type BuscarProducto = (id: number) => ProductoConPrecio;
 
 interface PedidoItem {
   productoId: number;
