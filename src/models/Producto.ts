@@ -36,4 +36,6 @@ export abstract class Producto {
   getTipo(): tipoProducto {
     return this.tipo;
   }
+
+  getNombrePorID(id:number) {return this.nombre;}
 }
