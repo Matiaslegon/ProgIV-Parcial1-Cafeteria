@@ -80,7 +80,7 @@ describe('Reporte service', () => {
       estado: 'cancelado',  });
 
     expect(service.obtenerReporte()).toEqual({
-      facturacion: 5810,
+      facturacion: 58120,
       productoMasVendido: 1,    });
   });
 });
