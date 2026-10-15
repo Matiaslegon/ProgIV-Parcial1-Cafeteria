@@ -4,7 +4,7 @@ interface ProductoConPrecio {
   calcularPrecio(): number;
 }
 
-export type BuscarProducto = (id: number) => ProductoConPrecio;
+type BuscarProducto = (id: number) => ProductoConPrecio;
 
 interface PedidoItem {
   productoId: number;

@@ -14,9 +14,11 @@ export function crearApp(): Express {
   const app: Express = express();
   const productosRepository = new ProductoRepository();
   const productosController = new ProductosController(productosRepository);
+  
   const pedidoRepository = new PedidoRepository();
   const pedidoService = new PedidoService(pedidoRepository, productosRepository);
   const pedidoController = new PedidoController(pedidoService);
+  
   const reporteService = new ReporteService(pedidoRepository, productosRepository);
   const reporteController = new ReporteController(reporteService);
 

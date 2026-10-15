@@ -1,4 +1,3 @@
-import { BuscarProducto } from '../models/Pedido';
 import { Reporte } from '../models/Reporte';
 import { PedidoRepository } from '../repositories/PedidoRepository';
 import { ProductoRepository } from '../repositories/ProductoRepository';
@@ -21,14 +20,15 @@ export class ReporteService implements IReporteService {
   obtenerReporte(): ReporteJSON {
     const reporte = new Reporte();
     const pedidos = this.pedidos.obtenerTodos();
-    const buscar: BuscarProducto = (id) => this.productos.obtenerPorId(id)!;
+    const buscar = (id: number) => this.productos.obtenerPorId(id)!;
 
     const paraFacturacion = pedidos.map((pedido) => ({
-      estado: pedido.getEstado(),
-      calcularTotal: (buscarProducto: BuscarProducto) =>
+      getEstado: () => pedido.getEstado(),
+      calcularTotal: (buscarProducto: typeof buscar) =>
         pedido.calcularTotal(buscarProducto),
     }));
-    const paraVentas = pedidos.map((pedido) => ({ items: pedido.getItems() }));
+    const paraVentas = pedidos.map((pedido) => ({ getItems: () => pedido.getItems(),
+    }));
 
     return {
       facturacion: reporte.calcularFacturacion(paraFacturacion, buscar),
